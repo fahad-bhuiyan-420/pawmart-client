@@ -6,7 +6,7 @@ const MyOrders = () => {
     const {user} = use(AuthContext);
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/orders?email=${user.email}`).then(res => {
+        axios.get(`https://pawmart-server-rho.vercel.app/orders?email=${user.email}`).then(res => {
             console.log(res.data);
             setData(res.data);
         })

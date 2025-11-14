@@ -29,7 +29,7 @@ const AddListings = () => {
         }
 
 
-        axios.post('http://localhost:3000/products', newData)
+        axios.post('https://pawmart-server-rho.vercel.app/products', newData)
             .then(function (response) {
                 console.log(response);
             })

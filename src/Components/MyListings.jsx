@@ -9,7 +9,7 @@ const MyListings = () => {
 
         if (loader) return;
 
-        axios.get(`http://localhost:3000/products?email=${user.email}`)
+        axios.get(`https://pawmart-server-rho.vercel.app/products?email=${user.email}`)
             .then(res => {
                 console.log(res.data)
                 setData(res.data);
@@ -39,11 +39,11 @@ const MyListings = () => {
             date: date,
         }
 
-        axios.patch(`http://localhost:3000/products/${id}`, newData)
+        axios.patch(`https://pawmart-server-rho.vercel.app/products/${id}`, newData)
             .then(res => {
                 console.log("Updated successfully:", res.data);
 
-                axios.get(`http://localhost:3000/products?email=${user.email}`)
+                axios.get(`https://pawmart-server-rho.vercel.app/products?email=${user.email}`)
                     .then(res => {
                         console.log(res.data)
                         setData(res.data);
@@ -76,7 +76,7 @@ const MyListings = () => {
                     icon: "success"
                 });
 
-                axios.delete(`http://localhost:3000/products/${id}`)
+                axios.delete(`https://pawmart-server-rho.vercel.app/products/${id}`)
                     .then(res => {
                         console.log("Updated successfully:", res.data);
 

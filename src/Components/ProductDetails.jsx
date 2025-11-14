@@ -35,7 +35,7 @@ const ProductDetails = () => {
             phone: phone
         }
 
-        axios.post(`http://localhost:3000/orders`, newData)
+        axios.post(`https://pawmart-server-rho.vercel.app/orders`, newData)
     }
 
     return (

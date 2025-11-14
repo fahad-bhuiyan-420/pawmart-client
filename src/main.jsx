@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/recentListings'),
+        loader: () => fetch('https://pawmart-server-rho.vercel.app/recentListings'),
         Component: Home
       },
       {
@@ -58,39 +58,39 @@ const router = createBrowserRouter([
       },
       {
         path: '/products',
-        loader: () => fetch('http://localhost:3000/products'),
+        loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
         Component: Products,
         children: [
           {
             index: true,
-            loader: () => fetch('http://localhost:3000/products'),
+            loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
             Component: ProductListings
           },
           {
             path: 'pet',
-            loader: () => fetch('http://localhost:3000/products'),
+            loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
             Component: PetProducts
           },
           {
             path: 'food',
-            loader: () => fetch('http://localhost:3000/products'),
+            loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
             Component: PetFood
           },
           {
             path: 'accessories',
-            loader: () => fetch('http://localhost:3000/products'),
+            loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
             Component: PetAccessories
           },
           {
             path: 'care',
-            loader: () => fetch('http://localhost:3000/products'),
+            loader: () => fetch('https://pawmart-server-rho.vercel.app/products'),
             Component: PetCare
           }
         ]
       },
       {
         path: '/products/:id',
-        loader: () => fetch(`http://localhost:3000/products`),
+        loader: () => fetch(`https://pawmart-server-rho.vercel.app/products`),
         element: <PrivateRouter><ProductDetails></ProductDetails></PrivateRouter>
       },
 
