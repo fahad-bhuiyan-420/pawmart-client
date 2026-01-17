@@ -3,7 +3,7 @@ import { Outlet, useLoaderData } from 'react-router';
 
 const Products = () => {
     const data = useLoaderData();
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             <Outlet data={data}></Outlet>

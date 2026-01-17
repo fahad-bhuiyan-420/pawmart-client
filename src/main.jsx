@@ -20,6 +20,11 @@ import MyOrders from './Components/MyOrders.jsx';
 import PrivateRouter from './provider/PrivateRouter.jsx';
 import Login from './Components/Login.jsx';
 import UpdatePassword from './Components/UpdatePassword.jsx';
+import About from './Components/About.jsx';
+import DashBoard from './layout/DashBoard.jsx';
+import Charts from './Components/Charts.jsx';
+import NotAuthorized from './Components/NotAuthorized.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,18 +48,6 @@ const router = createBrowserRouter([
       {
         path: 'updatePassword',
         Component: UpdatePassword
-      },
-      {
-        path: 'addListings',
-        element: <PrivateRouter><AddListings></AddListings></PrivateRouter>
-      },
-      {
-        path: 'myListings',
-        element: <PrivateRouter><MyListings></MyListings></PrivateRouter>
-      },
-      {
-        path: 'myOrders',
-        element: <PrivateRouter><MyOrders></MyOrders></PrivateRouter>
       },
       {
         path: '/products',
@@ -89,12 +82,39 @@ const router = createBrowserRouter([
         ]
       },
       {
+        path: '/about',
+        Component: About
+      },
+
+      {
         path: '/products/:id',
         loader: () => fetch(`https://pawmart-server-rho.vercel.app/products`),
         element: <PrivateRouter><ProductDetails></ProductDetails></PrivateRouter>
       },
 
 
+    ]
+  },
+  {
+    path: '/dashboard',
+    element: <PrivateRouter><DashBoard></DashBoard></PrivateRouter>,
+    children: [
+      {
+        index: true,
+        element: <h2></h2>
+      },
+      {
+        path: 'add-listing',
+        Component: AddListings
+      },
+      {
+        path: 'my-listing',
+        Component: MyListings
+      },
+      {
+        path: 'my-orders',
+        Component: MyOrders
+      }
     ]
   },
 ]);
